@@ -199,6 +199,228 @@ const Index = () => {
           </div>
         </section>
 
+        <section className="py-16 bg-white">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-16">
+              <Badge className="mb-4">
+                <Icon name="Lightbulb" size={14} className="mr-1" />
+                Процесс подбора
+              </Badge>
+              <h3 className="text-4xl font-bold mb-4">Как это работает</h3>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                Пошаговая инструкция использования AI-сервиса подбора подарков
+              </p>
+            </div>
+
+            <div className="max-w-5xl mx-auto">
+              <div className="grid md:grid-cols-4 gap-8">
+                {[
+                  { 
+                    step: '1', 
+                    icon: 'UserCircle2', 
+                    title: 'Опишите получателя', 
+                    desc: 'Выберите возраст, интересы и повод для подарка',
+                    color: 'from-purple-500 to-pink-500'
+                  },
+                  { 
+                    step: '2', 
+                    icon: 'Brain', 
+                    title: 'AI анализирует данные', 
+                    desc: 'Нейросеть обрабатывает 50+ параметров и предпочтений',
+                    color: 'from-pink-500 to-orange-500'
+                  },
+                  { 
+                    step: '3', 
+                    icon: 'Gift', 
+                    title: 'Получаете варианты', 
+                    desc: 'Уникальные подарки с рейтингом соответствия',
+                    color: 'from-orange-500 to-red-500'
+                  },
+                  { 
+                    step: '4', 
+                    icon: 'ShoppingBag', 
+                    title: 'Оформляете заказ', 
+                    desc: 'Быстрая оплата и доставка за 1-2 дня',
+                    color: 'from-red-500 to-purple-500'
+                  }
+                ].map((item, index) => (
+                  <div 
+                    key={index} 
+                    className="relative animate-fade-in"
+                    style={{ animationDelay: `${index * 100}ms` }}
+                  >
+                    <div className="text-center">
+                      <div className={`w-20 h-20 bg-gradient-to-br ${item.color} rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg`}>
+                        <Icon name={item.icon} size={36} className="text-white" />
+                      </div>
+                      <div className="absolute top-8 left-1/2 w-full hidden md:block">
+                        {index < 3 && (
+                          <div className="w-full h-0.5 bg-gradient-to-r from-muted to-transparent"></div>
+                        )}
+                      </div>
+                      <Badge className="mb-3 bg-gradient-to-r from-primary to-secondary text-white">
+                        Шаг {item.step}
+                      </Badge>
+                      <h4 className="text-lg font-bold mb-2">{item.title}</h4>
+                      <p className="text-sm text-muted-foreground">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="mt-16 max-w-3xl mx-auto">
+              <Card className="bg-gradient-to-br from-primary/5 to-secondary/5 border-2">
+                <CardContent className="pt-6">
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center flex-shrink-0">
+                      <Icon name="Zap" size={24} className="text-white" />
+                    </div>
+                    <div>
+                      <h4 className="text-xl font-bold mb-2">Демо-режим для тестирования</h4>
+                      <p className="text-muted-foreground mb-4">
+                        Попробуйте AI-подбор прямо сейчас без регистрации. Введите данные о получателе и получите персональные рекомендации за 30 секунд.
+                      </p>
+                      <Button className="bg-gradient-to-r from-primary to-secondary text-white">
+                        <Icon name="Sparkles" size={16} className="mr-2" />
+                        Попробовать демо
+                      </Button>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </section>
+
+        <section className="py-16 bg-gradient-to-br from-primary/5 to-secondary/5">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12">
+              <Badge className="mb-4">
+                <Icon name="Star" size={14} className="mr-1" />
+                Отзывы клиентов
+              </Badge>
+              <h3 className="text-4xl font-bold mb-4">Реальные истории наших пользователей</h3>
+              <p className="text-muted-foreground">Более 5000 довольных клиентов уже нашли идеальные подарки</p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+              {[
+                {
+                  name: 'Анна Соколова',
+                  role: 'Маркетолог',
+                  avatar: '👩‍💼',
+                  rating: 5,
+                  text: 'Искала подарок коллеге на юбилей. AI предложил идеальный набор для кофемана — попал точно в цель! Заказ пришёл за день.',
+                  gift: 'Кофейный набор'
+                },
+                {
+                  name: 'Михаил Петров',
+                  role: 'IT-специалист',
+                  avatar: '👨‍💻',
+                  rating: 5,
+                  text: 'Долго выбирал подарок жене на годовщину. Сервис учёл все её увлечения и предложил книгу с автографом любимого автора. Восторг!',
+                  gift: 'Книга с автографом'
+                },
+                {
+                  name: 'Елена Волкова',
+                  role: 'Предприниматель',
+                  avatar: '👩‍🎨',
+                  rating: 5,
+                  text: 'Покупаю подарки партнёрам через DreamGift AI. Экономит массу времени, а качество подбора на высоте. Рекомендую!',
+                  gift: 'Корпоративные подарки'
+                }
+              ].map((review, index) => (
+                <Card 
+                  key={index} 
+                  className="animate-scale-in hover:shadow-xl transition-all"
+                  style={{ animationDelay: `${index * 150}ms` }}
+                >
+                  <CardHeader>
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-14 h-14 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-2xl">
+                        {review.avatar}
+                      </div>
+                      <div>
+                        <CardTitle className="text-lg">{review.name}</CardTitle>
+                        <CardDescription>{review.role}</CardDescription>
+                      </div>
+                    </div>
+                    <div className="flex gap-1 mb-3">
+                      {[...Array(review.rating)].map((_, i) => (
+                        <Icon key={i} name="Star" size={16} className="text-yellow-500 fill-yellow-500" />
+                      ))}
+                    </div>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground mb-4">{review.text}</p>
+                    <Badge variant="outline">
+                      <Icon name="Gift" size={12} className="mr-1" />
+                      {review.gift}
+                    </Badge>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="py-16 bg-white">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12">
+              <Badge className="mb-4">
+                <Icon name="Handshake" size={14} className="mr-1" />
+                Наши партнёры
+              </Badge>
+              <h3 className="text-4xl font-bold mb-4">Интеграция с ведущими магазинами</h3>
+              <p className="text-muted-foreground">Доступ к каталогам 10+ торговых площадок</p>
+            </div>
+
+            <div className="max-w-5xl mx-auto">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
+                {[
+                  { name: 'Wildberries', color: 'text-purple-600' },
+                  { name: 'OZON', color: 'text-blue-600' },
+                  { name: 'Яндекс.Маркет', color: 'text-yellow-600' },
+                  { name: 'VK Маркет', color: 'text-blue-500' }
+                ].map((partner, index) => (
+                  <Card 
+                    key={index}
+                    className="p-6 hover:shadow-lg transition-all cursor-pointer group animate-fade-in"
+                    style={{ animationDelay: `${index * 100}ms` }}
+                  >
+                    <div className="text-center">
+                      <div className={`text-3xl font-bold ${partner.color} group-hover:scale-110 transition-transform`}>
+                        {partner.name}
+                      </div>
+                    </div>
+                  </Card>
+                ))}
+              </div>
+
+              <Card className="mt-12 bg-gradient-to-r from-primary to-secondary text-white">
+                <CardContent className="pt-6">
+                  <div className="text-center">
+                    <h4 className="text-2xl font-bold mb-3">Технологические интеграции</h4>
+                    <p className="mb-4 opacity-90">Работаем с мессенджерами и социальными сетями</p>
+                    <div className="flex justify-center gap-4 flex-wrap">
+                      {[
+                        { name: 'VK', icon: 'MessageCircle' },
+                        { name: 'Telegram', icon: 'Send' },
+                      ].map((tech, i) => (
+                        <Badge key={i} variant="secondary" className="text-base px-4 py-2">
+                          <Icon name={tech.icon} size={16} className="mr-2" />
+                          {tech.name}
+                        </Badge>
+                      ))}
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </section>
+
         <section className="py-16 container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h3 className="text-4xl font-bold mb-12">Почему DreamGift AI?</h3>
